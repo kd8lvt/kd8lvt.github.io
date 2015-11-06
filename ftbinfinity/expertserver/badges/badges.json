@@ -1,0 +1,16 @@
+{
+	"players":
+	{
+		"04ef8e69ffc7449e80f99085f067fad6": "Admin",
+		"d04a3e27121d4b5491b2081d52f391cd": "Super Moderator"
+		
+		
+	},
+	"badges":
+	{
+		"Member": "kd8lvt.github.io\ftbinfinity\expertserver\badges\member.png",
+		"Moderator": "kd8lvt.github.io\ftbinfinity\expertserver\badges\moderator.png"
+		"Super Moderator": "kd8lvt.github.io\ftbinfinity\expertserver\badges\supermoderator.png",
+		"Admin": "kd8lvt.github.io\ftbinfinity\expertserver\badges\administrator.png",
+	}
+}
