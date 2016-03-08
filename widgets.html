@@ -3,7 +3,12 @@
 <br />
 <script src="kd8lvt.github.io/javascript/dragndrop.js"></script>
 <style>.keyLink { position: absolute; }</style>
-<script class="keyLink">
+<script>
+    dragDrop.initElement(document.getElementById('time'));
+    dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));
+    dragDrop.initElement(document.getElementById('txt'));
+</script>
+<script class="keyLink" id='time'>
 function startTime() {
     var today = new Date();
     var h = today.getHours();
