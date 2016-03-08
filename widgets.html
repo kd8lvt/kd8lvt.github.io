@@ -3,16 +3,6 @@
 <br />
 <script type="text/javascript">
 
-function initPage(){
-	dragDrop.initElement(document.getElementById('time'));
-	console.log("You can move time!")
-	dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));
-	console.log("You can move the search bar!")
-	dragDrop.initElement(document.getElementById('txt'));
-	console.log("DEBUG")
-	startTime()
-}
-
 dragDrop = {
 	keyHTML: '<a href="#" class="keyLink">#</a>',
 	keySpeed: 10, // pixels per keypress event
@@ -123,6 +113,16 @@ dragDrop = {
 function init() {
 	dragDrop.initElement('test');
 	dragDrop.initElement(document.getElementById('test2'));
+}
+
+function initPage(){
+	dragDrop.initElement(document.getElementById('time'));
+	console.log("You can move time!")
+	dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));
+	console.log("You can move the search bar!")
+	dragDrop.initElement(document.getElementById('txt'));
+	console.log("DEBUG")
+	startTime()
 }
 
 </script>
