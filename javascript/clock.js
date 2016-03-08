@@ -1,6 +1,7 @@
 var d = new Date
-function sleep(el) {
-  setTimeout(function() { foobar_cont(el); }, 5000);
+function sleep(ms) {
+    var unixtime_ms = new Date().getTime();
+    while(new Date().getTime() < unixtime_ms + ms) {}
 }
 function clock() {
   var date = d.getHours() + ":" + d.getMinutes()
