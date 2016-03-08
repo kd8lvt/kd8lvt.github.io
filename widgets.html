@@ -1,11 +1,28 @@
 <title>Widgets</title>
 <h1>I DO NOT OWN THESE! THEY ARE THE PROPERTY OF THEIR OWNERS!</h1>
 <br />
-<p id="clock">Clock: Start me!</p>
-<script src="javascript/clock.js"></script>
-<div id="clockButtonDiv">
-  <button type="button" id="clockButton" onclick="startClock()"> Click me to start the clock.</button>
-</div>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+
+<div id="txt"></div>
 <br />
 <h2>Absolute Value Equation Calculator</h2>
 <br></br>
