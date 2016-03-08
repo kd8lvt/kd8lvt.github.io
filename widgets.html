@@ -1,99 +1,10 @@
 <title>Widgets</title>
 <h1>I DO NOT OWN THESE! THEY ARE THE PROPERTY OF THEIR OWNERS!</h1>
 <br />
-<script src="kd8lvt.github.io/javascript/dragndrop.js"></script>
-<style type="text/css">
-div#test,div#test2 {
-	width: 150px;
-	height: 50px;
-	border: 3px solid #AF0078;
-	padding: 10px;
-	background-color: #ffffff;
-	position: absolute;
-	top: 300px;
-	left: 0;
-	cursor: pointer;
-	z-index: 200;
-}
+<script type="text/javascript">
+<!--
 
-div#test2 {
-	position: fixed;
-	top: 220px;
-}
-
-div.dragged {
-	cursor: all-scroll !important;
-	border-color: #cc0000 !important;
-	z-index: 300 !important;
-}
-
-a.keyLink {
-	position: absolute;
-	top: -2px;
-	right: -2px;
-	width: 20px;
-	height: 20px;
-	border: 1px solid #000000;
-	background-image: none;
-	font-size: 120%;
-	text-align: center;
-	padding: 0;
-	background-color: #ffffff;
-	opacity: .5;
-}
-
-div.dragged a.keyHTML,a.keyHTML:focus {
-	border-color: #cc0000;
-}
-
-</style>
-<script id='time'>
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('txt').innerHTML =
-    "Time: " + h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-}
-</script>
-</head>
-
-<body onload="startTime()">
-<body onload="dragDrop.initElement(document.getElementById('time'));">
-<body onload="dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));">
-<body onload="dragDrop.initElement(document.getElementById('txt'));">
-
-<div id="txt"></div>
-<br />
-<h2>Absolute Value Equation Calculator</h2>
-<br></br>
-
-<br></br>
-<h2>Searchbar</h2>
-<script type="text/javascript" id="WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8" src="//www.wolframalpha.com/widget/widget.jsp?id=f0f00498800a3f82d2e08cc472581aa8"></script>
-<script>
-function addEventSimple(obj,evt,fn) {
-	if (obj.addEventListener)
-		obj.addEventListener(evt,fn,false);
-	else if (obj.attachEvent)
-		obj.attachEvent('on'+evt,fn);
-}
-
-function removeEventSimple(obj,evt,fn) {
-	if (obj.removeEventListener)
-		obj.removeEventListener(evt,fn,false);
-	else if (obj.detachEvent)
-		obj.detachEvent('on'+evt,fn);
-}
-    dragDrop = {
+dragDrop = {
 	keyHTML: '<a href="#" class="keyLink">#</a>',
 	keySpeed: 10, // pixels per keypress event
 	initialMouseX: undefined,
@@ -173,7 +84,7 @@ function removeEventSimple(obj,evt,fn) {
 				return true;
 		}
 		dragDrop.setPosition(dragDrop.dXKeys,dragDrop.dYKeys);
-		if (evt.preventDefault)
+		if (evt.preventDefault) // also solves problem in Saf; keypress part of default ???
 			evt.preventDefault();
 		return false;
 	},
@@ -182,7 +93,9 @@ function removeEventSimple(obj,evt,fn) {
 		dragDrop.draggedObject.style.top = dragDrop.startY + dy + 'px';
 	},
 	switchKeyEvents: function () {
+
 		// for Opera and Safari 1.3
+
 		removeEventSimple(document,'keydown',dragDrop.dragKeys);
 		removeEventSimple(document,'keypress',dragDrop.switchKeyEvents);
 		addEventSimple(document,'keypress',dragDrop.dragKeys);
@@ -197,4 +110,88 @@ function removeEventSimple(obj,evt,fn) {
 		dragDrop.draggedObject = null;
 	}
 }
+
+function init() {
+	dragDrop.initElement('test');
+	dragDrop.initElement(document.getElementById('test2'));
+}
+
+// -->
 </script>
+<style type="text/css">
+div#test,div#test2 {
+	width: 150px;
+	height: 50px;
+	border: 3px solid #AF0078;
+	padding: 10px;
+	background-color: #ffffff;
+	position: absolute;
+	top: 300px;
+	left: 0;
+	cursor: pointer;
+	z-index: 200;
+}
+
+div#test2 {
+	position: fixed;
+	top: 220px;
+}
+
+div.dragged {
+	cursor: all-scroll !important;
+	border-color: #cc0000 !important;
+	z-index: 300 !important;
+}
+
+a.keyLink {
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #000000;
+	background-image: none;
+	font-size: 120%;
+	text-align: center;
+	padding: 0;
+	background-color: #ffffff;
+	opacity: .5;
+}
+
+div.dragged a.keyHTML,a.keyHTML:focus {
+	border-color: #cc0000;
+}
+
+</style>
+<script id='time'>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    "Time: " + h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+<body onload="dragDrop.initElement(document.getElementById('time'));">
+<body onload="dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));">
+<body onload="dragDrop.initElement(document.getElementById('txt'));">
+
+<div id="txt"></div>
+<br />
+<h2>Absolute Value Equation Calculator</h2>
+<br></br>
+
+<br></br>
+<h2>Searchbar</h2>
+<script type="text/javascript" id="WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8" src="//www.wolframalpha.com/widget/widget.jsp?id=f0f00498800a3f82d2e08cc472581aa8"></script>
