@@ -7,7 +7,7 @@ function startClock() {
   var parent = document.getElementById("clockButtonDiv");
   var child = document.getElementById("clockButton");
   parent.removeChild(child);
-  while true {
+  while (true) {
     clock()
   }
 }
