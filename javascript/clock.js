@@ -22,5 +22,5 @@ function startClock() {
   var parent = document.getElementById("clockButtonDiv");
   var child = document.getElementById("clockButton");
   parent.removeChild(child);
-  continueExecution()
+  mainLoop()
 }
