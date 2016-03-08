@@ -4,7 +4,14 @@ function sleep(ms){
 }
 function continueExecution() {
     clock()
+}
+function mainLoop(){
+  i = 60
+  while (i > 0) {
     sleep(1000)
+    i = i-1
+  }
+  mainLoop()
 }
 function clock() {
   var date = d.getHours() + ":" + d.getMinutes()
