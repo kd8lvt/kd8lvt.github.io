@@ -4,6 +4,7 @@ function sleep(ms){
 }
 function continueExecution() {
     clock()
+    console.log("DEBUG: "+date)
     sleep(1000)
 }
 function clock() {
