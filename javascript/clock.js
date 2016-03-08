@@ -1,10 +1,12 @@
 var d = new Date
-function pauseBrowser(millis) {
-    var date = Date.now();
-    var curDate = null;
-    do {
-        curDate = Date.now();
-    } while (curDate-date < millis);
+function waitFor(predicate, successCallback) {
+    setTimeout(function () {
+        var result = predicate();
+        if (result !== undefined)
+            successCallback(result);
+        else
+            waitFor(predicate, successCallback);
+    }, 100);
 }
 function clock() {
   var date = d.getHours() + ":" + d.getMinutes()
@@ -15,8 +17,11 @@ function startClock() {
   var parent = document.getElementById("clockButtonDiv");
   var child = document.getElementById("clockButton");
   parent.removeChild(child);
-  while (true){  
-    pauseBrowser(1000)
+  while (true){
+    var d = new Date()
+    var curDate = null
+    do { var curDate = new Date() }
+    waitFor(curDate-d > 1000)
     clock()
   }
 }
