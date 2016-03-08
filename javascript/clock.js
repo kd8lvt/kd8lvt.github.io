@@ -1,9 +1,5 @@
-function time() {
-  return Date()
-}
 function clock() {
-  var date = time()
-  document.getElementById('clock').innerHTML = date
+  document.getElementById('clock').innerHTML = Date()
 }
 function startClock() {
   var parent = document.getElementById("clockButtonDiv");
