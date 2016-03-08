@@ -1,6 +1,6 @@
 var d = new Date
 function sleep(ms){
-  setTimeout(continueExecution, ms) //wait ten seconds before continuing
+  setTimeout(continueExecution(), ms) //wait 'ms' seconds before continuing
 }
 function continueExecution() {
     clock()
