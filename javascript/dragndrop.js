@@ -1,104 +1,117 @@
-var _startX = 0;            // mouse starting positions
-var _startY = 0;
-var _offsetX = 0;           // current element offset
-var _offsetY = 0;
-var _dragElement;           // needs to be passed from OnMouseDown to OnMouseMove
-var _oldZIndex = 0;         // we temporarily increase the z-index during drag
-var _debug = $('debug');    // makes life easier
-InitDragDrop();
-
-function InitDragDrop()
-{
-    document.onmousedown = OnMouseDown;
-    document.onmouseup = OnMouseUp;
-}
-function OnMouseDown(e)
-{
-    // IE is retarded and doesn't pass the event object
-    if (e == null) 
-        e = window.event; 
-    
-    // IE uses srcElement, others use target
-    var target = e.target != null ? e.target : e.srcElement;
-    
-    _debug.innerHTML = target.className == 'drag' 
-        ? 'draggable element clicked' 
-        : 'NON-draggable element clicked';
-
-    // for IE, left click == 1
-    // for Firefox, left click == 0
-    if ((e.button == 1 && window.event != null || 
-        e.button == 0) && 
-        target.className == 'drag')
-    {
-        // grab the mouse position
-        _startX = e.clientX;
-        _startY = e.clientY;
-        
-        // grab the clicked element's position
-        _offsetX = ExtractNumber(target.style.left);
-        _offsetY = ExtractNumber(target.style.top);
-        
-        // bring the clicked element to the front while it is being dragged
-        _oldZIndex = target.style.zIndex;
-        target.style.zIndex = 10000;
-        
-        // we need to access the element in OnMouseMove
-        _dragElement = target;
-
-        // tell our code to start moving the element with the mouse
-        document.onmousemove = OnMouseMove;
-        
-        // cancel out any text selections
-        document.body.focus();
-
-        // prevent text selection in IE
-        document.onselectstart = function () { return false; };
-        // prevent IE from trying to drag an image
-        target.ondragstart = function() { return false; };
-        
-        // prevent text selection (except IE)
-        return false;
-    }
-}
-function OnMouseMove(e)
-{
-    if (e == null) 
-        var e = window.event; 
-
-    // this is the actual "drag code"
-    _dragElement.style.left = (_offsetX + e.clientX - _startX) + 'px';
-    _dragElement.style.top = (_offsetY + e.clientY - _startY) + 'px';
-    
-    _debug.innerHTML = '(' + _dragElement.style.left + ', ' + 
-        _dragElement.style.top + ')';   
-}
-function OnMouseUp(e)
-{
-    if (_dragElement != null)
-    {
-        _dragElement.style.zIndex = _oldZIndex;
-
-        // we're done with these events until the next OnMouseDown
-        document.onmousemove = null;
-        document.onselectstart = null;
-        _dragElement.ondragstart = null;
-
-        // this is how we know we're not dragging      
-        _dragElement = null;
-        
-        _debug.innerHTML = 'mouse up';
-    }
-}
-function ExtractNumber(value)
-{
-    var n = parseInt(value);
-	
-    return n == null || isNaN(n) ? 0 : n;
+function addEventSimple(obj,evt,fn) {
+	if (obj.addEventListener)
+		obj.addEventListener(evt,fn,false);
+	else if (obj.attachEvent)
+		obj.attachEvent('on'+evt,fn);
 }
 
-// this is simply a shortcut for the eyes and fingers
-function $(id)
-{
-    return document.getElementById(id);
+function removeEventSimple(obj,evt,fn) {
+	if (obj.removeEventListener)
+		obj.removeEventListener(evt,fn,false);
+	else if (obj.detachEvent)
+		obj.detachEvent('on'+evt,fn);
+}
+dragDrop = {
+	keyHTML: '<a href="#" class="keyLink">#</a>',
+	keySpeed: 10, // pixels per keypress event
+	initialMouseX: undefined,
+	initialMouseY: undefined,
+	startX: undefined,
+	startY: undefined,
+	dXKeys: undefined,
+	dYKeys: undefined,
+	draggedObject: undefined,
+	initElement: function (element) {
+		if (typeof element == 'string')
+			element = document.getElementById(element);
+		element.onmousedown = dragDrop.startDragMouse;
+		element.innerHTML += dragDrop.keyHTML;
+		var links = element.getElementsByTagName('a');
+		var lastLink = links[links.length-1];
+		lastLink.relatedElement = element;
+		lastLink.onclick = dragDrop.startDragKeys;
+	},
+	startDragMouse: function (e) {
+		dragDrop.startDrag(this);
+		var evt = e || window.event;
+		dragDrop.initialMouseX = evt.clientX;
+		dragDrop.initialMouseY = evt.clientY;
+		addEventSimple(document,'mousemove',dragDrop.dragMouse);
+		addEventSimple(document,'mouseup',dragDrop.releaseElement);
+		return false;
+	},
+	startDragKeys: function () {
+		dragDrop.startDrag(this.relatedElement);
+		dragDrop.dXKeys = dragDrop.dYKeys = 0;
+		addEventSimple(document,'keydown',dragDrop.dragKeys);
+		addEventSimple(document,'keypress',dragDrop.switchKeyEvents);
+		this.blur();
+		return false;
+	},
+	startDrag: function (obj) {
+		if (dragDrop.draggedObject)
+			dragDrop.releaseElement();
+		dragDrop.startX = obj.offsetLeft;
+		dragDrop.startY = obj.offsetTop;
+		dragDrop.draggedObject = obj;
+		obj.className += ' dragged';
+	},
+	dragMouse: function (e) {
+		var evt = e || window.event;
+		var dX = evt.clientX - dragDrop.initialMouseX;
+		var dY = evt.clientY - dragDrop.initialMouseY;
+		dragDrop.setPosition(dX,dY);
+		return false;
+	},
+	dragKeys: function(e) {
+		var evt = e || window.event;
+		var key = evt.keyCode;
+		switch (key) {
+			case 37:	// left
+			case 63234:
+				dragDrop.dXKeys -= dragDrop.keySpeed;
+				break;
+			case 38:	// up
+			case 63232:
+				dragDrop.dYKeys -= dragDrop.keySpeed;
+				break;
+			case 39:	// right
+			case 63235:
+				dragDrop.dXKeys += dragDrop.keySpeed;
+				break;
+			case 40:	// down
+			case 63233:
+				dragDrop.dYKeys += dragDrop.keySpeed;
+				break;
+			case 13: 	// enter
+			case 27: 	// escape
+				dragDrop.releaseElement();
+				return false;
+			default:
+				return true;
+		}
+		dragDrop.setPosition(dragDrop.dXKeys,dragDrop.dYKeys);
+		if (evt.preventDefault)
+			evt.preventDefault();
+		return false;
+	},
+	setPosition: function (dx,dy) {
+		dragDrop.draggedObject.style.left = dragDrop.startX + dx + 'px';
+		dragDrop.draggedObject.style.top = dragDrop.startY + dy + 'px';
+	},
+	switchKeyEvents: function () {
+		// for Opera and Safari 1.3
+		removeEventSimple(document,'keydown',dragDrop.dragKeys);
+		removeEventSimple(document,'keypress',dragDrop.switchKeyEvents);
+		addEventSimple(document,'keypress',dragDrop.dragKeys);
+	},
+	releaseElement: function() {
+		removeEventSimple(document,'mousemove',dragDrop.dragMouse);
+		removeEventSimple(document,'mouseup',dragDrop.releaseElement);
+		removeEventSimple(document,'keypress',dragDrop.dragKeys);
+		removeEventSimple(document,'keypress',dragDrop.switchKeyEvents);
+		removeEventSimple(document,'keydown',dragDrop.dragKeys);
+		dragDrop.draggedObject.className = dragDrop.draggedObject.className.replace(/dragged/,'');
+		dragDrop.draggedObject = null;
+	}
 }
