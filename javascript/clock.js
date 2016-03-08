@@ -6,12 +6,11 @@ function continueExecution() {
     clock()
 }
 function mainLoop(){
-  var i = 60
+  var i = 60000000000000000
   while (i > 0) {
     sleep(1000)
     var i = i-1
   }
-  mainLoop()
 }
 function clock() {
   var date = d.getHours() + ":" + d.getMinutes()
