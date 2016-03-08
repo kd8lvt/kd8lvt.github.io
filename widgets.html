@@ -3,6 +3,13 @@
 <br />
 <script type="text/javascript">
 
+function init(){
+	startTime()
+	dragDrop.initElement(document.getElementById('time'));
+	dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));
+	dragDrop.initElement(document.getElementById('txt'));
+}
+
 dragDrop = {
 	keyHTML: '<a href="#" class="keyLink">#</a>',
 	keySpeed: 10, // pixels per keypress event
@@ -161,6 +168,7 @@ div.dragged a.keyHTML,a.keyHTML:focus {
 }
 
 </style>
+<body onload="init()">
 <script id='time'>
 function startTime() {
     var today = new Date();
@@ -180,10 +188,7 @@ function checkTime(i) {
 </script>
 </head>
 
-<body onload="startTime()">
-<body onload="dragDrop.initElement(document.getElementById('time'));">
-<body onload="dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));">
-<body onload="dragDrop.initElement(document.getElementById('txt'));">
+
 
 <div id="txt"></div>
 <br />
