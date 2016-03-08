@@ -1,16 +1,10 @@
 var d = new Date
-function sleep(ms){
-  setTimeout(continueExecution, ms) //wait 'ms' seconds before continuing
-}
-function continueExecution() {
-    clock()
-}
-function mainLoop(){
-  var i = 60000000000000000
-  while (i > 0) {
-    sleep(1000)
-    var i = i-1
-  }
+function pauseBrowser(millis) {
+    var date = Date.now();
+    var curDate = null;
+    do {
+        curDate = Date.now();
+    } while (curDate-date < millis);
 }
 function clock() {
   var date = d.getHours() + ":" + d.getMinutes()
@@ -21,5 +15,8 @@ function startClock() {
   var parent = document.getElementById("clockButtonDiv");
   var child = document.getElementById("clockButton");
   parent.removeChild(child);
-  mainLoop()
+  while (true){  
+    pauseBrowser(1000)
+    clock()
+  }
 }
