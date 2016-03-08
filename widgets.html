@@ -2,12 +2,30 @@
 <h1>I DO NOT OWN THESE! THEY ARE THE PROPERTY OF THEIR OWNERS!</h1>
 <br />
 <script src="kd8lvt.github.io/javascript/dragndrop.js"></script>
-<style>.dragged { position: fixed; }</style>
-<script>
-    dragDrop.initElement(document.getElementById('time'));
-    dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));
-    dragDrop.initElement(document.getElementById('txt'));
-</script>
+<style>
+	.dragged { 
+		position: fixed;
+	}
+	a.keyLink {
+		position: absolute;
+		top: -2px;
+		right: -2px;
+		width: 20px;
+		height: 20px;
+		border: 1px solid #000000;
+		background-image: none;
+		font-size: 120%;
+		text-align: center;
+		padding: 0;
+		background-color: #ffffff;
+		opacity: .5;
+	}
+	div.dragged {
+		cursor: all-scroll !important;
+		border-color: #cc0000 !important;
+		z-index: 300 !important;
+	}
+</style>
 <script id='time'>
 function startTime() {
     var today = new Date();
@@ -28,6 +46,9 @@ function checkTime(i) {
 </head>
 
 <body onload="startTime()">
+<body onload="dragDrop.initElement(document.getElementById('time'));">
+<body onload="dragDrop.initElement(document.getElementById('WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8'));">
+<body onload="dragDrop.initElement(document.getElementById('txt'));">
 
 <div id="txt"></div>
 <br />
