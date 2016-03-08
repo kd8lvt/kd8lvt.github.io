@@ -38,6 +38,19 @@ function checkTime(i) {
 <h2>Searchbar</h2>
 <script class="keyLink" type="text/javascript" id="WolframAlphaScriptf0f00498800a3f82d2e08cc472581aa8" src="//www.wolframalpha.com/widget/widget.jsp?id=f0f00498800a3f82d2e08cc472581aa8"></script>
 <script>
+function addEventSimple(obj,evt,fn) {
+	if (obj.addEventListener)
+		obj.addEventListener(evt,fn,false);
+	else if (obj.attachEvent)
+		obj.attachEvent('on'+evt,fn);
+}
+
+function removeEventSimple(obj,evt,fn) {
+	if (obj.removeEventListener)
+		obj.removeEventListener(evt,fn,false);
+	else if (obj.detachEvent)
+		obj.detachEvent('on'+evt,fn);
+}
     dragDrop = {
 	keyHTML: '<a href="#" class="keyLink">#</a>',
 	keySpeed: 10, // pixels per keypress event
