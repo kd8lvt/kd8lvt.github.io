@@ -6,10 +6,10 @@ function continueExecution() {
     clock()
 }
 function mainLoop(){
-  i = 60
+  var i = 60
   while (i > 0) {
     sleep(1000)
-    i = i-1
+    var i = i-1
   }
   mainLoop()
 }
