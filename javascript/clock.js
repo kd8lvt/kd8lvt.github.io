@@ -1,5 +1,7 @@
+var d = new Date
 function clock() {
-  document.getElementById('clock').innerHTML = Date()
+  var date = d.getHours() + ":" + d.getMinutes()
+  document.getElementById('clock').innerHTML = date
 }
 function startClock() {
   var parent = document.getElementById("clockButtonDiv");
