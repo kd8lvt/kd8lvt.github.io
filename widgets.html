@@ -6,14 +6,14 @@
 dragDrop = {
 	keyHTML: '<a href="#" class="keyLink">#</a>',
 	keySpeed: 10, // pixels per keypress event
-	initialMouseX: undefined,
-	initialMouseY: undefined,
-	startX: undefined,
-	startY: undefined,
-	dXKeys: undefined,
-	dYKeys: undefined,
-	draggedObject: undefined,
-	lastLink: undefined,
+	initialMouseX: 0,
+	initialMouseY: 0,
+	startX: 0,
+	startY: 0,
+	dXKeys: 0,
+	dYKeys: 0,
+	draggedObject: 0,
+	lastLink: 0,
 	initElement: function (element) {
 		if (typeof element == 'string')
 			element = document.getElementById(element);
