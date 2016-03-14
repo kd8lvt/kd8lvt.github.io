@@ -18,8 +18,8 @@ var chat = document.getElementById('chat'),
 	randomColorsChosen = {},
 	clientOptions = {
 			identity: {
-				username: "",
-				password: ""
+				username: "kdwebsite",
+				password: "oauth:61c0jojsgay6984beetkelgeldmgk5"
 			},
 			options: {
 					debug: true
