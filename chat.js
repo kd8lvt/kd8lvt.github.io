@@ -1,13 +1,13 @@
-var channels = ['choobtastic', 'wolftaz', 'odduser', 'itanshi', 'kd8lvt', 'soraleoyfaith', 'pulpjohnfiction'], // Channels to initially join
-	fadeDelay = 5000, // Set to false to disable chat fade
-	showChannel = true, // Show repespective channels if the channels is longer than 1
-	useColor = true, // Use chatters' colors or to inherit
-	showBadges = true, // Show chatters' badges
-	showEmotes = true, // Show emotes in the chat
-	doTimeouts = true, // Hide the messages of people who are timed-out
-	doChatClears = true, // Hide the chat from an entire channel
-	showHosting = true, // Show when the channel is hosting or not
-	showConnectionNotices = true; // Show messages like "Connected" and "Disconnected"
+var channels = ['choobtastic', 'wolftaz', 'odduser', 'itanshi', 'kd8lvt', 'soraleoyfaith', 'pulpjohnfiction'] // Channels to initially join
+var fadeDelay = 5000 // Set to false to disable chat fade
+var showChannel = true // Show repespective channels if the channels is longer than 1
+var useColor = true // Use chatters' colors or to inherit
+var showBadges = true // Show chatters' badges
+var showEmotes = true // Show emotes in the chat
+var doTimeouts = true // Hide the messages of people who are timed-out
+var doChatClears = true // Hide the chat from an entire channel
+var showHosting = true // Show when the channel is hosting or not
+var showConnectionNotices = true // Show messages like "Connected" and "Disconnected"
 
 
 
