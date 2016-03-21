@@ -1,15 +1,17 @@
-<script language="JavaScript" type="text/javascript">
+<script>
     function bookmark() 
     {
         var title = 'You are awesome!';
         var url = 'javascript:alert("No, seriously, you are!")';
 
         if (document.all)// Check if the browser is Internet Explorer
+        {
             window.external.AddFavorite(url, title);
-
+        }
         else if (window.sidebar) //If the given browser is Mozilla Firefox
+        {
             window.sidebar.addPanel(title, url, "");
-
+        }
         else if (window.opera && window.print) //If the given browser is Opera
         {
             var bookmark_element = document.createElement('a');
