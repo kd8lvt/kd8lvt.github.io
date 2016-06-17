@@ -1,6 +1,9 @@
 html {
 	background: url(stone.png);
 }
+h1,h3,h4,p {
+	color:white;
+}
 .closed {
 	display:none;
 	margin:10px;
