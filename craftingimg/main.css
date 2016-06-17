@@ -1,0 +1,10 @@
+html {
+	background: url(stone.png);
+}
+.closed {
+	display:none;
+	margin:10px;
+}
+a {
+	color:black;
+}
