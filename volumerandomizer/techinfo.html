@@ -1,0 +1,19 @@
+<title>Volume Randomizer | Technical Information</title>
+
+<h1>Volume Randomizer: Technical Information</h1>
+
+<h2>Source Code</h2>
+<p>You can find the source code for Volume Randomizer at <a href="https://github.com/kd8lvt/volume-randomizer">it's GitHub repository!</a></p>
+<br />
+<br />
+<h2>I don't want the source code, I just want to know how it works!</h2>
+<p>Well, it's pretty simple, actually. Basically, I use <a href="https://github.com/joshforisha/fast-simplex-noise-js">Fast Simplex Noise</a>, <a href="https://www.npmjs.com/package/random-js">Random-JS</a>, and <a href="https://www.npmjs.com/package/vol">Vol</a> to:</p>
+<ol>
+  <li>Get a random "Volume Biome" and volume level. (Fast Simplex Noise)</li>
+  <li>I lower the values of the Volume Biome, because it tends to be (incredibly) loud. (NodeJS)</li>
+  <li>Add them together, and then multiply by a completely random value (Random-JS)</li>
+  <li>And then set your volume to the value, so long as it is between 20 and 70. (Vol)</li>
+</ol>
+<p>In doing so, it creates a sort of "noise map". I just increment along the volume and biome grid by 0.001 every "tick", and once it finds a suitable value, it fires off the above process.</p>
+<p>Once the first three steps are done, it <b>slowly<b> sets the volume, by waiting a quarter of a second between each volume increment.</p>
+<p>After the whole process is finished, it makes a random number, waits that many seconds, then does the whole process again.</p>
