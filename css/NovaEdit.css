@@ -29,14 +29,14 @@ svg.homeIcon-1FoKUJ{background: url(https://i.imgur.com/pIiNaUN.gif) no-repeat c
 .backdrop-1wrmKB {opacity: .2 !important}
 
 #voice-connection, #friends, .friends-header, .friends-table, .guildsWrapper-5TJh6A, .headerBar-UHpsPw, .guild-header header, .private-channels .search-bar, .friend-table-add-header, .content-yTz4x3, .title-wrap:not(.search-bar), #app-mount .tiles-2aXG_k, .messagesWrapper-3lZDfY, .messages-3amgkR .divider-3gKybi span, .messages-3amgkR .divider-3gKybi:before, .content-yTz4x3, .messageGroupBlocked-3wrQQX, .is-local-bot-message, .channel-members-loading, .channel-members-loading .heading, .channel-members-loading .member, .container-RYiLUQ, #app-mount .ui-standard-sidebar-view, #app-mount .ui-standard-sidebar-view .sidebar-region, #app-mount .ui-standard-sidebar-view .content-region, #app-mount .chat-3bRxxu form, #app-mount .wrapper-29NfPK, .video-1FfuMD, .channels-3g2vYe, #app-mount .friends-table, #app-mount .messagesWrapper-3lZDfY, .content-yTz4x3 .flex-spacer, #app-mount .chat-3bRxxu>.content, #app-mount .chat-3bRxxu, .channel-members, .search  .container-iksrDt, .container-3lnMWU, #app-mount .title-qAcLxz, #app-mount .typing-3eiiL_, .container-2OU7Cz, #app-mount .activityFeed-HeiGwL, #app-mount .headerBar-cxbhPD, #app-mount .lfg-3xoFkI, .video-3lOWa6, #app-mount .private-channel-call, .container-2lgZY8, .channels-Ie2l6A, .container-PNkimc, .container-2Thooq, #app-mount .title-3qD0b-, #app-mount .typing-2GQL18, .search-bar.search-bar-light, #app-mount .members-1998pB, .search-results-wrap .results-wrapper, #app-mount .messageGroupWrapper-o-Zw7G:hover, #app-mount .layer-3QrUeG {background: transparent !important}
-#app-mount .card-2WxYqG {background-color: rgba(54, 57, 63, 0.3)}
+#app-mount .card-2WxYqG {background-color: rgba(54,57,63,0.3)}
 #app-mount .layers-3iHuyZ, .typeWindows-15E0Ys {background: rgba(0, 0, 0, 0.1) }
 
 
 #app-mount .themedPopout-25DgLi .header-SsaQ8X .title-23FrqZ {color: hsla(0, 100%, 50%, 0.9);font-size: 20px}
 #app-mount .messageGroupBlocked-3wrQQX {display:none}
 #app-mount .messageGroupWrapper-o-Zw7G,#app-mount .messagesPopoutWrap-1MQ1bW .messagesPopout-24nkyi .containerCozy-jafyvG {background-color: rgba(0,0,0,0.6) ;border-color: hsla(240, 100%, 50%, 0.8) !important}
-#app-mount .messageGroupWrapper-o-Zw7G:hover {background-color: rgba(255, 0, 0, 0) !important}
+#app-mount .messageGroupWrapper-o-Zw7G:hover {background-color: rgba(145, 31, 221) !important}
 #app-mount .messagesPopoutWrap-1MQ1bW .header-ykumBX .title-3pkaKd {color: #fff;text-align:center}
 .messagesPopoutWrap-1MQ1bW .header-ykumBX,
 #app-mount .messagesPopoutWrap-1MQ1bW {background-color: rgba(0, 0, 0, 0.9) ;border: 1px solid hsla(240, 100%, 50%, 0.8);box-shadow: 0 0 0 0 rgba(0,0,0,0)}
