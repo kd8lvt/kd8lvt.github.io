@@ -3282,7 +3282,7 @@ html, span:not(.spinner-item) {
 
 
 /* ----------------------- COPYRIGHT PROTECTION ----------------------- */
-
+/*
 html > head + body > div#app-mount.appMount-3VJmYg > div.typeWindows-1za-n7.titleBar-AC4pGV.horizontalReverse-3tRjY7.flex-1O1GKY.directionRowReverse-m8IjIq.justifyStart-2NDFzi.alignStretch-DpGPf3 > div.wordmark-2iDDfm {
 	display: block !important;
 	position: absolute !important;
@@ -3331,4 +3331,4 @@ html > head + body > div#app-mount.appMount-3VJmYg > div.app-19_DXt > div > div.
 	font-weight: 600 !important; 
 	color: rgb(114, 118, 125) !important; 
 	padding: 2px 10px !important;
-}
+}*/
