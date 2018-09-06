@@ -304,8 +304,8 @@ filter: drop-shadow(var(--shadow1))}
 
 /* Context Menu */
 .theme-dark.contextMenu-HLZMGh,#app-mount .container-3cGP6G {background: rgba(0, 0, 0, 0.92);border: 1px solid rgba(255, 0, 0, 0.4);box-shadow: none}
-#app-mount .item-1GzJrl:hover {background: hsla(0, 100%, 50%, 0.4)}
-#app-mount .item-1Yvehc:hover,#app-mount .item-2J1YMK:hover {background: rgba(0, 0, 255, 0.4);color: #fff}
+#app-mount .item-1GzJrl:hover {background: rgb(77, 11, 183)}
+#app-mount .item-1Yvehc:hover,#app-mount .item-2J1YMK:hover {background: rgba(77, 11, 183,0.4);color: #fff}
 .form.deprecated header{ display:none}
 .create-guild-container.deprecated .action {
 background: hsla(0, 0%, 0%, 0.6);border: none;border-radius: 10px;
