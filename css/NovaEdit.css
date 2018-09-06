@@ -5,7 +5,7 @@
     --mc: rgb(145, 31, 221);
     --sc: rgb(77, 11, 183);
     --bg1: rgba(0,0,0, .5);
-    --bc1: hsla(0, 100%, 50%, .6);
+    --bc1: rgb(145, 31, 221);
 }
 
 @keyframes button	{100%{transform:scale(.90)}50%{transform:scale(1)}} 
