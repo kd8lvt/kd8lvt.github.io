@@ -67,21 +67,21 @@ svg.homeIcon-1FoKUJ{background: url(https://i.imgur.com/pIiNaUN.gif) no-repeat c
 .need-help-modal.deprecated .header,.need-help-modal.deprecated .form-inner.loading,
 .need-help-modal.deprecated .footer,.need-help-modal.deprecated .header input[type=text] {background: rgba(0, 0, 0, 0.9)}
 #app-mount .menu-Sp6bN1 {background: rgba(0, 0, 0, 0.93)}
-#app-mount .footer-1fjuF6 {border-color: rgba(210, 0, 0, 0.3)}
+#app-mount .footer-1fjuF6 {border-color: rgba(54,57,63,0.3)}
 #app-mount .body-3iLsc4, #app-mount .footer-1fjuF6 {color: hsl(0, 0%, 100%)}
 .headerSpotify-zpWxgT {background: rgba(0, 0, 0, 0.9)}
 
 .tabBarContainer-1s1u-z {border-top: 1px solid hsla(218, 84%, 15%, 0.38);padding-left: 130px}
-#app-mount .listRow-hutiT_:hover {background: linear-gradient(90deg,hsl(216, 89%, 15%) 20%,hsl(4, 88%, 14%));color: #fff}
+#app-mount .listRow-hutiT_:hover {background: linear-gradient(90deg,rgba(54,57,63,0.3) 20%,rgba(77, 11, 183,0.3));color: #fff}
 #app-mount .activityFeed-28jde9 {background: transparent }
 #app-mount .quickswitcher-3JagVE {background-color: rgba(0, 0, 0, 0.9);color: #fff;box-shadow: 0 0 3px 1px red}
 
-#app-mount .wrapperAudio-1jDe0Q {background-color: rgba(0, 0, 0, 0.7);border-color: rgb(100, 14, 2)}
+#app-mount .wrapperAudio-1jDe0Q {background-color: rgba(0, 0, 0, 0.7);border-color: rgba(54,57,63,0.3)}
 .unread-1Dp-OI {background-color: hsla(0, 100%, 50%, 0.8);border-radius: 0 2px 2px 0;height: 12px;width: 3px;top:45%}
 .emojiPicker-3m1S-j .scroller-3vODG7 .emojiItem-109bjA.selected-39BZ4S {background-color: rgba(0, 0, 0, 0)}
 
 .private-channels .channel.selected:before,
-.private-channels .channel:hover:before {border-left: 5px solid rgb(128, 0, 128)}
+.private-channels .channel:hover:before {border-left: 5px solid rgba(54,57,63,0.3)}
 .private-channels .channel:hover:before {opacity: .25}
 .search-result,.tab-bar-item:hover {background: rgba(0, 0, 0, 0.2) }
 
@@ -102,7 +102,7 @@ svg.homeIcon-1FoKUJ{background: url(https://i.imgur.com/pIiNaUN.gif) no-repeat c
 .isMentioned-N-h9aa {margin: -.1rem 0rem .1rem}
 
 #app-mount .topic-2QX7LI {color: hsla(240,6%,97%,1)}
-#app-mount .wrapper-35wsBm {background: rgba(0, 0, 0, 0.6);border-color: rgb(92, 10, 2)}
+#app-mount .wrapper-35wsBm {background: rgba(0, 0, 0, 0.6);border-color: rgb(54,57,63)}
 
 #app-mount .modal-3HD5ck,#app-mount .footer-2yfCgX{background: hsla(0, 0%, 0%, 0.9);box-shadow:0 0 3px 1px hsla(0, 100%, 50%, 0.9)}
 #app-mount .defaultColor-1_ajX0 {text-align:center}
@@ -115,7 +115,7 @@ svg.homeIcon-1FoKUJ{background: url(https://i.imgur.com/pIiNaUN.gif) no-repeat c
 
 #app-mount .h5-18_1nd {color:#fff;font-size:16px}
 
-.tooltip.tooltip-black {background:rgba(0, 0, 0, 0.9);color: #fff;border:none;box-shadow: 0 0 5px 1px rgba(185, 47, 0, 0.9)}
+.tooltip.tooltip-black {background:rgba(0, 0, 0, 0.9);color: #fff;border:none;box-shadow: 0 0 5px 1px rgba(54,57,63,0.3)}
 .tooltip.tooltip-black:after {display:none}
 
 #app-mount .container-1rPqdX {background:hsla(0, 0%, 0%, 0.9);border: 1px solid #0000ff}
@@ -215,11 +215,11 @@ svg.homeIcon-1FoKUJ{background: url(https://i.imgur.com/pIiNaUN.gif) no-repeat c
 
 /* Channels */
 .container-1UB9sr {background: transparent;border-bottom:none;padding:0}
-.inner-btChU7 .channel-SEolQq {opacity:1;color:red}
-.unread-1xRYoj,.unread-1xRYoj:hover {background-color: rgba(214, 35, 34, 0.65)}
+.inner-btChU7 .channel-SEolQq {opacity:1;color:rgba(54,57,63,0.3)}
+.unread-1xRYoj,.unread-1xRYoj:hover {background-color: rgba(54,57,63,0.3)}
  
 /* Guilds */
-.guildsWrapper-5TJh6A .guildsAdd-21_IdK {background: rgba(0, 0, 0, 0.3);border: 1px dashed rgba(204,97,61,0.9);color: rgba(0, 128, 255, 0.7)}
+.guildsWrapper-5TJh6A .guildsAdd-21_IdK {background: rgba(0, 0, 0, 0.3);border: 1px dashed rgba(54,57,63,0.3);color: rgb(77, 11, 183)}
 #app-mount .guildSeparator-1X4GQ1:after {display:none}
 .guildsWrapper-5TJh6A .guilds-1q_RqH .friendsOnline-_wi_fM {color: hsla(0, 100%, 50%, 0.7);font-size: 11px;font-weight: 700}
 .guildsWrapper-5TJh6A .guilds-1q_RqH .guild-1EfMGQ .guildInner-3DSoA4 { background: rgba(0, 0, 0, 0.4) }
@@ -309,7 +309,7 @@ filter: drop-shadow(var(--shadow1))}
 .form.deprecated header{ display:none}
 .create-guild-container.deprecated .action {
 background: hsla(0, 0%, 0%, 0.6);border: none;border-radius: 10px;
-box-shadow: 0 0 2px 1px rgb(255, 21, 0);padding: 2px}
+box-shadow: 0 0 2px 1px rgb(54,57,63);padding: 2px}
 .create-guild-container.deprecated .action .btn {padding: 2px;width: 50%}
 .form-deprecated .btn-primary, .form.deprecated .btn-primary {background-color: rgba(114, 137, 218, 0.5);border-radius: 10px}
 .create-guild-container.deprecated .create-or-join .actions .or {display:none}
@@ -464,10 +464,10 @@ box-shadow: 0 0 2px 1px rgb(255, 21, 0);padding: 2px}
  animation-delay: 150ms;animation-fill-mode: forwards;opacity: 0}
 .menu-Sp6bN1.alt-3btY0e .item-1GzJrl:nth-of-type(4) .dnd-1_xrcq {
  z-index: 3;background-color: rgba(0, 0, 0, 0.25);
- box-shadow: 0 0 5px 1px rgb(255, 0, 0) ;
+ box-shadow: 0 0 5px 1px rgb(54,57,63) ;
  animation: statuspicker 300ms ease;
  animation-delay: 200ms;animation-fill-mode: forwards;opacity: 0}
-.menu-Sp6bN1.alt-3btY0e .item-1GzJrl:nth-of-type(4) .dnd-1_xrcq:hover { background-color: rgba(255, 0, 0, 0.08);box-shadow: 0 0 10px 2px rgb(255, 0, 0) }
+.menu-Sp6bN1.alt-3btY0e .item-1GzJrl:nth-of-type(4) .dnd-1_xrcq:hover { background-color: rgba(255, 0, 0, 0.08);box-shadow: 0 0 10px 2px rgb(54,57,63) }
 .alt-3btY0e .item-1GzJrl:nth-of-type(4) .statusIconText-3b4TkH > div {
 	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhbHF1ZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iLTk0NyA1MjkgMjQgMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk0NyA1MjkgMjQgMjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxyZWN0IHg9Ii05NDAuNCIgeT0iNTQwLjEiIGNsYXNzPSJzdDAiIHdpZHRoPSIxMC45IiBoZWlnaHQ9IjEuOCIvPjwvc3ZnPg==);
 	background-size: 90%;background-position: 50%;animation: statuspicker 300ms ease;
