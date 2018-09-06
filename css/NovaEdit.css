@@ -2,8 +2,8 @@
 @import url(https://satoru8.github.io/Addons/Library.css);
 
 :root {
-    --mc: hsla(240, 100%, 50%, 0.8);
-    --sc: hsla(0, 100%, 50%, 0.9);
+    --mc: rgb(145, 31, 221);
+    --sc: rgb(77, 11, 183);
     --bg1: rgba(0,0,0, .5);
     --bc1: hsla(0, 100%, 50%, .6);
 }
