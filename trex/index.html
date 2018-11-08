@@ -2037,10 +2037,6 @@ h2 {
   width: 72px;
 }
 
-input[type=checkbox] {
-  visibility: hidden;
-}
-
 .interstitial-wrapper {
   box-sizing: border-box;
   font-size: 1em;
@@ -2586,13 +2582,16 @@ html[subframe] body {
 		var default_gravity = 0.6;
 		var default_accel = 0.001;
 		
+		var new_grav = 0.6*0.85;
+		var new_accel = 0.001*1.25;
+		
 		setInterval(function() {
 			if (hardMode.checked == true) {
-				Runner.instance_.updateConfigSetting("GRAVITY",(default_gravity*0.85));
-				Runner.instance_.updateConfigSetting("GRAVITY",(default_accel*1.25));
+				Runner.instance_.updateConfigSetting("GRAVITY",new_grav);
+				Runner.instance_.updateConfigSetting("ACCELERATION",new_accel);
 			} else {
 				Runner.instance_.updateConfigSetting("GRAVITY",default_gravity);
-				Runner.instance_.updateConfigSetting("GRAVITY",default_accel);
+				Runner.instance_.updateConfigSetting("ACCELERATION",default_accel);
 			}	
 		},100);
 	</script>
