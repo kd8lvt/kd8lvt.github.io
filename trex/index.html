@@ -594,16 +594,13 @@
     if (this.distanceRan > this.highestScore) {
     this.highestScore = Math.ceil(this.distanceRan);
     this.distanceMeter.setHighScore(this.highestScore);
-    this.setCookie("hiScore",Math.ceil(this.distanceRan),10000000);
+    this.setCookie("hiScore",Math.ceil(this.distanceRan));
     }
     // Reset the time clock.
     this.time = getTimeStamp();
     },
-    setCookie: function(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";expires=" + expires + ";path=/";
+    setCookie: function(cname, cvalue) {
+      localStorage[cname] = cvalue;
     },
     stop: function() {
     this.activated = false;
