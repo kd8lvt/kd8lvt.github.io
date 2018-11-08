@@ -2570,13 +2570,17 @@ html[subframe] body {
     if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
       new Runner('.interstitial-wrapper');
     } else {
-      document.getElementById("main-frame-notchrome").style.display="";
-	}
+     document.getElementById("main-frame-notchrome").style.display="";
+    }
+  
+    function resetScore() {
+      localStorage.hiScore = 0;
+    }
   </script>
     
 
 
-
+	<button onClick="resetScore">Reset High-Score</button>
 </body>
 
 </html>
