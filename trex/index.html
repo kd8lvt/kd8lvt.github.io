@@ -393,7 +393,7 @@
     this.dimensions.HEIGHT);
 
 
-    var hiScore = this.getHiScoreFromCookie();
+    var hiScore = this.getFromCookie("hiScore");
     this.highestScore = hiScore;
     this.distanceMeter.setHighScore(this.highestScore);
 
@@ -617,27 +617,8 @@
     this.update();
     }
     },
-    getHiScoreFromCookie: function() {
-        var name = "hiScore=";
-        var cookie = document.cookie;
-        if (cookie == "" || cookie == null || cookie == undefined) {
-            cookie = "hiScore=0; expires=Mon Nov 7, 2118 12:00:00 UTC"
-        }
-        var decodedCookie = decodeURIComponent(cookie);
-
-        var ca = decodedCookie.split(";");
-
-        for (var i=0;i<ca.length;i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length,c.length);
-            }
-        }
-
-        return 0;
+    getFromCookie: function(cname) {
+        return localStorage[cname];
     },
     restart: function() {
     if (!this.raqId) {
