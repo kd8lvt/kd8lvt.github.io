@@ -2572,15 +2572,16 @@ html[subframe] body {
     } else {
      document.getElementById("main-frame-notchrome").style.display="";
     }
-  
-    function resetScore() {
-      localStorage.hiScore = 0;
-    }
   </script>
     
 
 
-	<button onClick="resetScore">Reset High-Score</button>
+	<button id="resetScore">Reset High-Score</button>
+	<script>
+		document.getElementById("resetScore").onclick = function() {
+      			localStorage.hiScore = 0;
+    		}
+	</script>
 </body>
 
 </html>
