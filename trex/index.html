@@ -2582,6 +2582,23 @@ html[subframe] body {
       			localStorage.hiScore = 0;
     		}
 	</script>
+	
+	<input type="checkbox" id="hardMode">Hard Mode (+25% Acceleration | -15% Gravity)</input>
+	<script>
+		var hardMode = document.getElementById("hardMode");
+		var default_gravity = 0.6;
+		var default_accel = 0.001;
+		
+		setInterval(function() {
+			if (hardMode.checked == true) {
+				Runner.Runner.instance_.updateConfigSetting("GRAVITY",(default_gravity*0.85));
+				Runner.Runner.instance_.updateConfigSetting("GRAVITY",(default_accel*1.25));
+			} else {
+				Runner.Runner.instance_.updateConfigSetting("GRAVITY",default_gravity);
+				Runner.Runner.instance_.updateConfigSetting("GRAVITY",default_accel);
+			}	
+		},100);
+	</script>
 </body>
 
 </html>
