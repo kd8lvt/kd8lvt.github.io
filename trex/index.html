@@ -2588,11 +2588,11 @@ html[subframe] body {
 		
 		setInterval(function() {
 			if (hardMode.checked == true) {
-				Runner.Runner.instance_.updateConfigSetting("GRAVITY",(default_gravity*0.85));
-				Runner.Runner.instance_.updateConfigSetting("GRAVITY",(default_accel*1.25));
+				Runner.instance_.updateConfigSetting("GRAVITY",(default_gravity*0.85));
+				Runner.instance_.updateConfigSetting("GRAVITY",(default_accel*1.25));
 			} else {
-				Runner.Runner.instance_.updateConfigSetting("GRAVITY",default_gravity);
-				Runner.Runner.instance_.updateConfigSetting("GRAVITY",default_accel);
+				Runner.instance_.updateConfigSetting("GRAVITY",default_gravity);
+				Runner.instance_.updateConfigSetting("GRAVITY",default_accel);
 			}	
 		},100);
 	</script>
