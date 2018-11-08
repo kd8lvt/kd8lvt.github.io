@@ -618,7 +618,8 @@
     }
     },
     getFromCookie: function(cname) {
-        return localStorage[cname];
+        var _temp = localStorage[cname] || 0;
+        return _temp;
     },
     restart: function() {
     if (!this.raqId) {
