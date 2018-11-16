@@ -18,6 +18,6 @@ function KD8LVT_ENABLECLIENTRENAME() {
 }
  
 function KD8LVT_DISABLECLIENTRENAME() {
-	cancelInterval(KD8LVT_RENAMELOOP);
+	clearInterval(KD8LVT_RENAMELOOP);
 	console.log("Disabled rename loop.");
 }
