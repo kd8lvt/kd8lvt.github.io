@@ -1,16 +1,18 @@
 var origN = ['Blue Snow Pup'];
 var newN = ['Ethan'];
+var classesToReplace = ['scrollerWrap-21JEkd','chat-3bRxxu'];
 
-var oldDoc = '';
-setInterval(function() {
-	var newDoc = document.body.innerHTML
-	if (oldDoc == newDoc) return;
-	for (var i=0;i<newDoc.length;i++) {
-		for (var j=0;j<origN.length;i++) {
-			if (newN[j] != null) document.body.innerHTML.replace(origN[j],newN[j]);
+function KD8LVT_ENABLECLIENTRENAME() {
+	setInterval(function() {
+		for (var k=0;k<classesToReplace.length;k++) {
+			var elem = document.getElementByClassName(classesToReplace[k]);
+			var newDoc = elem.innerHTML;
+			for (var i=0;i<newDoc.length;i++) {
+				for (var j=0;j<origN.length;i++) {
+					if (newN[j] != null) elem.innerHTML.replace(origN[j],newN[j]);
+				}
+			}
 		}
-	}
-	newDoc = document.body.innerHTML;
-	oldDoc = newDoc;
-},100);
+	},100);
+}
  
