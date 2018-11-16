@@ -7,7 +7,7 @@ setInterval(function() {
 	if (oldDoc == newDoc) return;
 	for (var i=0;i<newDoc.length;i++) {
 		for (var j=0;j<origN.length;i++) {
-			if (newN[j] != null) document.body.innerHTML.replace(orig[j],newN[j]);
+			if (newN[j] != null) document.body.innerHTML.replace(origN[j],newN[j]);
 		}
 	}
 	newDoc = document.body.innerHTML;
