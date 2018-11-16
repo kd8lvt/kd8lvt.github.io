@@ -3,12 +3,13 @@ var newN = ['Ethan'];
 
 var oldDoc = '';
 setInterval(function() {
-	var newDoc = document.html.innerHTML
+	var newDoc = document.body.innerHTML
+	if (oldDoc == newDoc) return;
 	for (var i=0;i<newDoc.length;i++) {
 		for (var j=0;k<origN.length;i++) {
-			if (newN[j] != null) document.innerHTML.replace(orig[j],newN[j]);
+			if (newN[j] != null) document.body.innerHTML.replace(orig[j],newN[j]);
 		}
 	}
-	newDoc = document.innerHTML;
+	newDoc = document.body.innerHTML;
 	oldDoc = newDoc;
 },100);
