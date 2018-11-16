@@ -1,6 +1,6 @@
 var origN = ['Blue Snow Pup'];
 var newN = ['Ethan'];
-var classesToReplace = ['scrollerWrap-21JEkd','chat-3bRxxu'];
+var classesToReplace = ['da-channels','da-chat'];
 var KD8LVT_RENAMELOOP;
 
 function KD8LVT_ENABLECLIENTRENAME() {
