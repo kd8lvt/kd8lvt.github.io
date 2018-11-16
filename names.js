@@ -13,3 +13,4 @@ setInterval(function() {
 	newDoc = document.body.innerHTML;
 	oldDoc = newDoc;
 },100);
+ 
