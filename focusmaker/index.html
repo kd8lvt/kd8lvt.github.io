@@ -1,0 +1,63 @@
+<head>
+	<script src="index.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Ubuntu+Mono" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Roboto Condensed', sans-serif;
+		}
+		.code {
+			font-family: 'Ubuntu Mono', monospace;
+			background-color: #303030;
+			color: #FFFFFF;
+			padding: 2px;
+		}
+	</style>
+</head>
+<body>
+	<h3>HOW TO USE:</h3>
+	<ol>
+		<li>Open your web-browser's console (on Chrome you press F12)</li>
+		<li>Explore! use <div class="code">Docs(thing to get docs on);</div> to get some (super basic) documentation on a variable or method.</li>
+		<li>Look at the examples below for some more info.</li>
+	</ol>
+	<br />
+	<br />
+	<br />
+	<h3>EXAMPLES:</h3>
+	<p>Example 1 - Firebolt</p>
+	<div class="code">
+		var myFocus = new Focus().init(); //The shorthand way to initialize your Focus. There are other ways, but they are longer.
+		<br />
+		<br />
+		var longFire = new Node(types.effect,effects.fire).addElement("setting.duration",5).addElement("setting.power",5); //This makes the effected mob get lit on fire for 5 seconds (the maximum)
+		<br />
+		<br />
+		myFocus.addNode(new Node(types.medium,mediums.bolt));//Thunderbolt-styled focus
+		<br />
+		myFocus.addNode(longFire);//...........................With a firey effect!
+		<br />
+		<br />
+		myFocus.command(); //Export to a /summon command
+	</div>
+	<br />
+	<p>Example 2 - Fluxbats</p>
+	<div class="code">
+		var myFocus = new Focus().init();
+		<br />
+		<br />
+		myFocus.addNode(new Node(types.medium,mediums.touch)); //Just so the bat doesn't spawn right on your face
+		<br />
+		<br />
+		var bats = new Node(types.medium,medium.bat).addElement("setting.target",0);
+		<br />
+		var flux = new Node(types.effect,effects.flux).addElement("setting.power",5);
+		<br />
+		<br />
+		myFocus.addNode(bats);
+		<br />
+		myFocus.addNode(flux);
+		<br />
+		<br />
+		myFocus.command();
+	</div>
+</body>
