@@ -182,7 +182,7 @@ function getCurrentFileHash() {
 		currentData = 'error';
 		return false;
 	}
-	var fileData = fs.readFileSync(currentFile);
+	var fileData = fs.readFileSync(currentFile,'utf-8');
 	if (fileData == ``) {
 		console.log('[Auto-Updater] Error reading current file. Check errorlog.txt for more details.');
 		try {
