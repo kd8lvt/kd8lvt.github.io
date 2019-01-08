@@ -253,6 +253,7 @@ function getOnlineHash() {
 			return getHash(currentData);
 		}
 	});
+	
 }
 
 function checkForUpdates() {
@@ -279,7 +280,7 @@ function updateAvailable() {
 		answer = ans;
 		rl.close();
 		if (ans.toLowerCase() == 'y' || ans.toLowerCase() == 'yes') {
-			console.log('[Auto-Update] Beginning update process.');
+			console.log('[Auto-Updater] Beginning update process.');
 			update();
 		} else if (ans.toLowerCase() == 'n' || ans.toLowerCase() == 'no') {
 			console.log('[Auto-Updater] Okay! I will ask again next reboot.');
@@ -297,7 +298,7 @@ function update() {
 
 	child.on('close', () => {
 		console.log('Rebooting bot to apply update. Please wait!');
-		exit();
+		process.exit();
 	});
 }
 
