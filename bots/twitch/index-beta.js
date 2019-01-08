@@ -275,18 +275,19 @@ function updateAvailable() {
 		input: process.stdin,
 		output: process.stdout
 	});
-	var answer = '';
 	rl.question("[Auto-Updater] An update is available! Download it now? [Y/n]", (ans) => {
 		answer = ans;
 		rl.close();
+		if (ans.toLowerCase() == 'y' || ans.toLowerCase() == 'yes') {
+			console.log('[Auto-Update] Beginning update process.');
+			update();
+		} else if (ans.toLowerCase() == 'n' || ans.toLowerCase() == 'no') {
+			console.log('[Auto-Updater] Okay! I will ask again next reboot.');
+			return false;
+		} else {
+			return false;
+		}
 	});
-	if (answer.toLowerCase() == 'y' || answer.toLowerCase() == 'yes') {
-		console.log('[Auto-Update] Beginning update process.');
-		update();
-	} else if (answer.toLowerCase() == 'n' || answer.toLowerCase() == 'no') {
-		console.log('[Auto-Updater] Okay! I will ask again next reboot.');
-		return false;
-	}
 }
 
 function update() {
