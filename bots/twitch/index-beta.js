@@ -203,57 +203,12 @@ function getCurrentFileHash() {
 }
 
 function getOnlineHash() {
-	var https = require('https');
+	var request = require('sync-request');
 
-	console.log('Checking online for new file. Please wait...');
+	console.log('[Auto-Updater] Checking online for new file. Please wait...');
 	var currentData = ``;
-	https.get('https://kd8lvt.github.io/bots/twitch/index-beta.js',(res) => {
-		if (res.statusCode < 200 || res.statusCode > 226) {
-			console.log('[Auto-Updater] Error reading from remote host. Check errorlog.txt for more details.');
-			try {
-				var errLog = fs.openSync('./errorlog.txt','w');
-			} catch (err) {
-				console.error('Error reading errorlog.txt: '+err);
-				return false;
-			}
-			fs.writeFileSync(errLog,'Error while reading from remote host...\n \nERROR: \nNon-success status-code. Status-code: '+res.statusCode);
-			fs.closeSync(errLog);
-			currentData = 'error';
-			return false;
-		}
-
-		res.on('data', (d) => {
-			currentData = currentData + d;
-		});
-	}).on('error', (e) => {
-		console.log('[Auto-Updater] Error reading from remote host. Check errorlog.txt for more details.');
-		try {
-			var errLog = fs.openSync('./errorlog.txt','w');
-		} catch (err) {
-			console.error('Error reading errorlog.txt: '+err);
-			return false;
-		}
-		fs.writeFileSync(errLog,'Error while reading from remote host...\n \nERROR: \n'+e);
-		fs.closeSync(errLog);
-		return false;
-	}).on('close', () => {
-		if (currentData == ``) {
-			console.log('[Auto-Updater] Error reading from remote server. Check errorlog.txt for more details.');
-			try {
-				var errLog = fs.openSync('./errorlog.txt','w');
-			} catch (err) {
-				console.error('Error reading errorlog.txt: '+err);
-				return false;
-			}
-			fs.writeFileSync(errLog,'Error while reading from remote host...\n \nERROR: \n Read as EMPTY! Please send this report to Kd IMMEDIATELY!');
-			fs.closeSync(errLog);
-			return false;
-		} else if (currentData == 'error') {
-			return false;
-		} else {
-			return getHash(currentData);
-		}
-	});
+	var res = request('GET','https://raw.githubusercontent.com/kd8lvt/kd8lvt.github.io/master/bots/twitch/index-beta.js');
+	return getHash(res.body.toString('utf-8'));
 	
 }
 
@@ -263,6 +218,9 @@ function checkForUpdates() {
 	var onlineHash = getOnlineHash();
 	if (onlineHash == false) return false;
 
+	console.log('Current Hash: '+curHash);
+	console.log('Online Hash: '+onlineHash);
+
 	if (curHash != onlineHash) {
 		return updateAvailable();
 	} else {
@@ -271,25 +229,19 @@ function checkForUpdates() {
 	}
 }
 function updateAvailable() {
-	var readline = require('readline');
-	var rl = readline.createInterface({
-		input: process.stdin,
-		output: process.stdout
-	});
-	return rl.question("[Auto-Updater] An update is available! Download it now? [Y/n] => ", (ans) => {
-		answer = ans;
-		rl.close();
-		if (ans.toLowerCase() == 'y' || ans.toLowerCase() == 'yes') {
-			console.log('[Auto-Updater] Beginning update process.');
-			update();
-			return true;
-		} else if (ans.toLowerCase() == 'n' || ans.toLowerCase() == 'no') {
-			console.log('[Auto-Updater] Okay! I will ask again next reboot.');
-			return false;
-		} else {
-			return false;
-		}
-	});
+	var readline = require('readline-sync');
+	goingToUpdate = false;
+	ans = readline.question("[Auto-Updater] An update is available! Download it now? [Y/n] => ")
+	if (ans.toLowerCase() == 'y' || ans.toLowerCase() == 'yes') {
+		console.log('[Auto-Updater] Beginning update process.');
+		update();
+	} else if (ans.toLowerCase() == 'n' || ans.toLowerCase() == 'no') {
+		console.log('[Auto-Updater] Okay! I will ask again next reboot.');
+		goingToUpdate = true;
+	} else {
+		console.log("Huh? I didn't understand that.")
+		updateAvailable();
+	}
 }
 
 function update() {
