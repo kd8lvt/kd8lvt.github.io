@@ -276,7 +276,7 @@ function updateAvailable() {
 		input: process.stdin,
 		output: process.stdout
 	});
-	rl.question("[Auto-Updater] An update is available! Download it now? [Y/n]", (ans) => {
+	rl.question("[Auto-Updater] An update is available! Download it now? [Y/n] => ", (ans) => {
 		answer = ans;
 		rl.close();
 		if (ans.toLowerCase() == 'y' || ans.toLowerCase() == 'yes') {
