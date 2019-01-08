@@ -306,59 +306,58 @@ function update() {
 /////////////
 //BOT STUFF//
 /////////////
-if (updated == false) { 
-	var bot = new tmi.client(options);
-	bot.connect();
+var bot = new tmi.client(options);
+bot.connect();
 
-	bot.on('chat', function (channel,userstate,msg,self) {
-		//console.log(userstate);
-		if (self) return
-		parseMessage(msg,userstate,channel);
-		if (configuration.useAfkTimer) {
-			if (afk.indexOf(userstate.username) > -1) {
-				for (i=afk.length;i>=0;i--) {
-					if (afk[i] == userstate.username) {
-						afk.splice(i,1);
-						online.push(userstate.username);
-					}
+bot.on('chat', function (channel,userstate,msg,self) {
+	//console.log(userstate);
+	if (self) return
+	parseMessage(msg,userstate,channel);
+	if (configuration.useAfkTimer) {
+		if (afk.indexOf(userstate.username) > -1) {
+			for (i=afk.length;i>=0;i--) {
+				if (afk[i] == userstate.username) {
+					afk.splice(i,1);
+					online.push(userstate.username);
 				}
+			}
+		} else {
+			if (afkTimers[userstate.username] != null) {
+				clearTimeout(afkTimers[userstate.username]);
+				afkTimers[userstate.username] = setTimeout(function() {addToAfk()},((configuration.afkTimer*1000)*60),userstate.username);
 			} else {
-				if (afkTimers[userstate.username] != null) {
-					clearTimeout(afkTimers[userstate.username]);
-					afkTimers[userstate.username] = setTimeout(function() {addToAfk()},((configuration.afkTimer*1000)*60),userstate.username);
-				} else {
-					afkTimers[userstate.username] = setTimeout(function() {addToAfk()},((configuration.afkTimer*1000)*60),userstate.username);
-				}
+				afkTimers[userstate.username] = setTimeout(function() {addToAfk()},((configuration.afkTimer*1000)*60),userstate.username);
 			}
 		}
-	});
+	}
+});
 
-	bot.on('join', function (channel,username, self) {
-		if (self) {
-			setInterval(function() {givePaycheck()},(configuration.paycheckInterval*1000)*60);
-			crashed();
-			return;
+bot.on('join', function (channel,username, self) {
+	if (self) {
+		setInterval(function() {givePaycheck()},(configuration.paycheckInterval*1000)*60);
+		crashed();
+		return;
+	}
+	online.push(username);
+});
+
+bot.on('part', function (channel,username,self) {
+	if (self) return;
+	for (i=online.length;i>=0;i--) {
+		if (online[i] == username) {
+			online.splice(i,1);
 		}
-		online.push(username);
-	});
+	}
+});
 
-	bot.on('part', function (channel,username,self) {
-		if (self) return;
-		for (i=online.length;i>=0;i--) {
-			if (online[i] == username) {
-				online.splice(i,1);
-			}
-		}
-	});
+/**bot.on('names', (chan,users) => {
+	//if (!gotNames) {
+		console.log("Got list of users!");
+		console.log(users);
+		online = users;
+	//}
+})**/
 
-	/**bot.on('names', (chan,users) => {
-		//if (!gotNames) {
-			console.log("Got list of users!");
-			console.log(users);
-			online = users;
-		//}
-	})**/
-}
 /////////////
 //FUNCTIONS//
 /////////////
