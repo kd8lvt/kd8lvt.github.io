@@ -157,6 +157,7 @@ var options = {
 
 var crypto = require('crypto');
 
+updateAnswerResponse = false;
 console.log("[Auto-Updater] Checking for updates... Please wait.");
 var updated = checkForUpdates();
 
@@ -269,19 +270,19 @@ function checkForUpdates() {
 		return false;
 	}
 }
-
 function updateAvailable() {
 	var readline = require('readline');
 	var rl = readline.createInterface({
 		input: process.stdin,
 		output: process.stdout
 	});
-	rl.question("[Auto-Updater] An update is available! Download it now? [Y/n] => ", (ans) => {
+	return rl.question("[Auto-Updater] An update is available! Download it now? [Y/n] => ", (ans) => {
 		answer = ans;
 		rl.close();
 		if (ans.toLowerCase() == 'y' || ans.toLowerCase() == 'yes') {
 			console.log('[Auto-Updater] Beginning update process.');
 			update();
+			return true;
 		} else if (ans.toLowerCase() == 'n' || ans.toLowerCase() == 'no') {
 			console.log('[Auto-Updater] Okay! I will ask again next reboot.');
 			return false;
@@ -293,7 +294,7 @@ function updateAvailable() {
 
 function update() {
 	var { exec } = require('child_process');
-	var child = exec('node updater '+configuration.filename);
+	var child = exec('node updater ./'+configuration.filename);
 	child.stdout.pipe(process.stdout);
 
 	child.on('close', () => {
