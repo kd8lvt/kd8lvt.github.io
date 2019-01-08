@@ -206,7 +206,7 @@ function getOnlineHash() {
 
 	console.log('Checking online for new file. Please wait...');
 	var currentData = ``;
-	https.get('https://kd8lvt.github.io/bots/twitch/main/index-beta.js',(res) => {
+	https.get('https://kd8lvt.github.io/bots/twitch/index-beta.js',(res) => {
 		if (res.statusCode < 200 || res.statusCode > 226) {
 			console.log('[Auto-Updater] Error reading from remote host. Check errorlog.txt for more details.');
 			try {
@@ -237,7 +237,7 @@ function getOnlineHash() {
 		return false;
 	});
 	if (currentData == ``) {
-		console.log('[Auto-Updater] Error reading from remote server. Check errorlog.txt for more details.');
+		console.log('[Auto-Updater] Error reading from remote host. Check errorlog.txt for more details.');
 		try {
 			var errLog = fs.openSync('./errorlog.txt','w');
 		} catch (err) {
