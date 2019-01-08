@@ -207,7 +207,7 @@ function getOnlineHash() {
 
 	console.log('[Auto-Updater] Checking online for new file. Please wait...');
 	var currentData = ``;
-	var res = request('GET','https://raw.githubusercontent.com/kd8lvt/kd8lvt.github.io/master/bots/twitch/index-beta.js');
+	var res = request('GET','http://kd8lvt.github.io/bots/twitch/index-beta.js');
 	return getHash(res.body.toString('utf-8'));
 	
 }
