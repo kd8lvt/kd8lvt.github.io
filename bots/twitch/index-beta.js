@@ -235,7 +235,7 @@ function getOnlineHash() {
 		fs.writeFileSync(errLog,'Error while reading from remote host...\n \nERROR: \n'+e);
 		fs.closeSync(errLog);
 		return false;
-	}).on('close' () => {
+	}).on('close', () => {
 		if (currentData == ``) {
 			console.log('[Auto-Updater] Error reading from remote server. Check errorlog.txt for more details.');
 			try {
