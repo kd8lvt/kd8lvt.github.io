@@ -292,7 +292,7 @@ function updateAvailable() {
 
 function update() {
 	var { exec } = require('child_process');
-	var child = exec('node',['updater',configuration.filename]);
+	var child = exec('node updater '+configuration.filename);
 	child.stdout.pipe(process.stdout);
 
 	child.on('close', () => {
