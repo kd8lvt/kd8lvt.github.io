@@ -1,7 +1,7 @@
 /** Don't edit this line!!! **/ const emoji = require('node-emoji');
 
 /////////////////
-//Databse Files//
+//Databse Files///
 /////////////////
 
 const pointFile = "point.db.json";
