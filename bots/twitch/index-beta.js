@@ -235,23 +235,24 @@ function getOnlineHash() {
 		fs.writeFileSync(errLog,'Error while reading from remote host...\n \nERROR: \n'+e);
 		fs.closeSync(errLog);
 		return false;
-	});
-	if (currentData == ``) {
-		console.log('[Auto-Updater] Error reading from remote host. Check errorlog.txt for more details.');
-		try {
-			var errLog = fs.openSync('./errorlog.txt','w');
-		} catch (err) {
-			console.error('Error reading errorlog.txt: '+err);
+	}).on('close' () => {
+		if (currentData == ``) {
+			console.log('[Auto-Updater] Error reading from remote server. Check errorlog.txt for more details.');
+			try {
+				var errLog = fs.openSync('./errorlog.txt','w');
+			} catch (err) {
+				console.error('Error reading errorlog.txt: '+err);
+				return false;
+			}
+			fs.writeFileSync(errLog,'Error while reading from remote host...\n \nERROR: \n Read as EMPTY! Please send this report to Kd IMMEDIATELY!');
+			fs.closeSync(errLog);
 			return false;
+		} else if (currentData == 'error') {
+			return false;
+		} else {
+			return getHash(currentData);
 		}
-		fs.writeFileSync(errLog,'Error while reading from remote host...\n \nERROR: \n Read as EMPTY! Please send this report to Kd IMMEDIATELY!');
-		fs.closeSync(errLog);
-		return false;
-	} else if (currentData == 'error') {
-		return false;
-	} else {
-		return getHash(currentData);
-	}
+	});
 }
 
 function checkForUpdates() {
