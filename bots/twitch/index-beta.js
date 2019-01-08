@@ -262,7 +262,7 @@ function checkForUpdates() {
 	if (onlineHash == false) return false;
 
 	if (curHash != onlineHash) {
-		return updateAvaialable();
+		return updateAvailable();
 	} else {
 		console.log("[Auto-Updater] No update available. Continuing as normal.");
 		return false;
