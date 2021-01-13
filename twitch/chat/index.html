@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .draggable-area {
+                width: 300px;
+                height: 50px;
+                background-color: blue;
+                color: white;
+                -webkit-app-region: drag;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="draggable-area">Transparent Twitch Chat App <input type='button' id='close' value='Close'></input></div>
+        </div>
+        <iframe
+            id="chat_embed"
+            src="https://www.twitch.tv/embed/kd8lvt/chat?parent=kd.funniray.com"
+            height="500"
+            width="350"
+            allowTransparency=true>
+        </iframe>
+
+        <script>
+            var app = require('electron').remote;
+
+            document.getElementById('close').addEventListener('click',()=>{
+                app.BrowserWindow.getFocusedWindow().close();
+            },false)
+
+            document.getElementById("chat").onload = () => {
+                document.getElementById("chat").contentWindow.document.style.backgroundColor = 'rgba(0,0,0,0);'
+            }
+        </script>
+    </body>
+</html>
