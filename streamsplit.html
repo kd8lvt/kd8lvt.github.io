@@ -4,7 +4,7 @@
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script>
-            let template = Handlebars.compile("<div class=\"col\"><div id=\"{{name}}-div\"><iframe src=\"https://player.twitch.tv/?channel={{name}}&parent=kd8lvt.github.io\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" style=\"width:100%;height:25%\" id=\"{{name}}-video\"></iframe><iframe id=\"{{name}}-chat\" src=\"https://www.twitch.tv/embed/{{name}}/chat?parent=kd8lvt.github.io\" style=\"width:100%;height:75%\"></iframe></div>")
+            let template = Handlebars.compile("<div class=\"col\" style=\"height:100%;\"><div id=\"{{name}}-div\"><iframe src=\"https://player.twitch.tv/?channel={{name}}&parent=kd8lvt.github.io\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" style=\"width:100%;height:25%\" id=\"{{name}}-video\"></iframe><iframe id=\"{{name}}-chat\" src=\"https://www.twitch.tv/embed/{{name}}/chat?parent=kd8lvt.github.io\" style=\"width:100%;height:75%\"></iframe></div>")
             let params = new URLSearchParams(window.location.search);
             let streams = JSON.parse(params.get("streams"));
             window.onload = () => {
@@ -16,6 +16,6 @@
         </script>
     </head>
     <body>
-        <div id="row" class="row"></div>
+        <div id="row" class="row" style="height:100%;width:100%"></div>
     </body>
 </html>
